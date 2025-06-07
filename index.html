@@ -2,72 +2,69 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Ajustada a tu Talla</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script defer src="carrito.js"></script>
+    <link rel="stylesheet" href="static/css/estilos.css" />
 </head>
 <body>
-    <header>
-        <h1 class="titulo-principal">Ajustada a tu Talla</h1>
-        <p class="lema">Ajustada a tu <strong>BELLEZA <3</strong></p>
-    </header>
+
+    <h1 class="titulo-principal">Ajustada a tu Talla</h1>
+    <p class="lema">AJUSTADA A TU BELLEZA</p>
 
     <div class="contenedor-principal">
+        <!-- BARRA LATERAL -->
         <nav class="barra-lateral">
             <button class="boton-nav">Inicio</button>
-            <button class="boton-nav">Sobre Nosotros</button>
-            <button class="boton-nav">Preguntas Frecuentes</button>
-            <button class="boton-nav">Políticas de Devolución</button>
+            <button class="boton-nav">Sobre nosotros</button>
+            <button class="boton-nav">Preguntas frecuentes</button>
+            <button class="boton-nav">Políticas de devolución</button>
         </nav>
 
+        <!-- SECCIÓN PRINCIPAL -->
         <main>
             <section class="productos">
-                <article class="producto">
-                    <img src="static/img/mallas1.avif" alt="Mallas deportivas" />
-                    <h3>Mallas deportivas</h3>
-                    <p class="precio">$350</p>
-                    <button class="boton-agregar" data-producto="Mallas deportivas" data-precio="350">Agregar al carrito</button>
-                </article>
-
-                <article class="producto">
-                    <img src="static/img/top1.avif" alt="Top deportivo" />
-                    <h3>Top deportivo</h3>
-                    <p class="precio">$250</p>
-                    <button class="boton-agregar" data-producto="Top deportivo" data-precio="250">Agregar al carrito</button>
-                </article>
-
-                <!-- Agrega más productos si quieres -->
-            </section>
-
-            <section class="contacto-ubicacion">
-                <h2>Contacto</h2>
-                <p>Teléfono: 3323830353</p>
-                <h2>Ubicación</h2>
-                <p>Hacienda los Eucaliptos, Tlajomulco de Zúñiga</p>
+                <div class="producto">
+                    <img src="static/img/top1.avif" alt="Top deportivo">
+                    <p class="precio">$199.00</p>
+                    <button class="boton-agregar" data-producto="Top deportivo" data-precio="199">Agregar al carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="static/img/conjunto2.avif" alt="Conjunto rosa">
+                    <p class="precio">$499.00</p>
+                    <button class="boton-agregar" data-producto="Conjunto rosa" data-precio="499">Agregar al carrito</button>
+                </div>
+                <!-- Agrega más productos similares -->
             </section>
 
             <section class="comentarios">
                 <h2>CALIFICA NUESTROS PRODUCTOS</h2>
                 <h3>DEJA TU COMENTARIO</h3>
                 <form id="form-comentario">
-                    <textarea placeholder="Escribe tu comentario aquí..." required></textarea>
+                    <textarea placeholder="Escribe tu opinión aquí..."></textarea>
                     <br />
-                    <button type="submit" class="boton-nav">Enviar</button>
+                    <button type="submit">Enviar</button>
                 </form>
             </section>
+
+            <section class="contacto-ubicacion">
+                <p>Tel: 3323830353</p>
+                <p>Ubicación: Hacienda los Eucaliptos, Tlajomulco de Zúñiga</p>
+            </section>
+
+            <footer>
+                <p>&copy; 2025 Ajustada a tu Talla</p>
+            </footer>
         </main>
 
+        <!-- CARRITO -->
         <aside class="carrito">
-            <h2>Carrito de Compras</h2>
+            <h2>Carrito</h2>
             <ul id="lista-carrito"></ul>
             <p id="total-carrito">Total: $0.00</p>
-            <button id="vaciar-carrito" class="boton-nav">Vaciar carrito</button>
+            <button id="vaciar-carrito">Vaciar carrito</button>
         </aside>
     </div>
 
-    <footer>
-        <p>© 2025 Ajustada a tu Talla - Todos los derechos reservados</p>
-    </footer>
+    <script src="static/js/carrito.js"></script>
 </body>
 </html>
