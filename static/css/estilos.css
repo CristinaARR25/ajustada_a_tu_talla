@@ -28,7 +28,7 @@ body {
     font-family: 'Brush Script MT', cursive;
     font-size: 1.5rem;
     font-style: italic;
-    color: #6F52AC;
+    color: #7c5ac6;
     margin-bottom: 30px;
 }
 
@@ -212,6 +212,20 @@ main {
 #lista-carrito li {
     padding: 8px 5px;
     border-bottom: 1px solid #A58FFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#lista-carrito li button {
+    background-color: #A58FFF;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-weight: bold;
 }
 
 #total-carrito {
@@ -277,46 +291,4 @@ footer {
         max-width: 90%;
         margin-top: 20px;
     }
-}
-
-.lema {
-    font-size: 1.5rem;
-    font-style: italic;
-    font-weight: 600;
-    color: #7c5ac6;
-}
-
-/* Contenedor principal con sidebar y contenido */
-.contenedor-principal {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-
-/* Barra lateral */
-.barra-lateral {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    min-width: 180px;
-    align-items: flex-start;
-}
-
-.barra-lateral button {
-    padding: 10px 20px;
-    background-color: #c6a6ff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-style: italic;
-    font-weight: 700;
-    color: #3c1361;
-    transition: background-color 0.3s ease;
-    width: 100%;
-    text-align: left;
-}
-
-.barra-lateral button:hover {
-    background-color: #9a72ff;
-    color: #fff;
 }
