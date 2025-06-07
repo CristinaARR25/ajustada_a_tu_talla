@@ -1,108 +1,219 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mi Tienda Fitness</title>
-    <link rel="stylesheet" href="static/css/estilos.css" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      rel="stylesheet"
-    />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MI TIENDA FITNESS</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4e6ff;
+      margin: 0;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    /* BARRA LATERAL */
+    .sidebar {
+      background-color: #e5d5f5;
+      padding: 20px;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+      width: 220px;
+      min-height: 100vh;
+      position: fixed;
+    }
+
+    .sidebar h2 {
+      font-size: 20px;
+      color: #7b4ca0;
+      margin-bottom: 20px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #76489c;
+      text-decoration: none;
+      margin: 12px 0;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      color: #a470d4;
+    }
+
+    /* CONTENIDO PRINCIPAL */
+    .main {
+      margin-left: 240px;
+      padding: 20px;
+      flex: 1;
+    }
+
+    h1 {
+      color: #6d3e91;
+      font-size: 32px;
+      margin-bottom: 0;
+      text-align: center;
+    }
+
+    h2.lema {
+      font-style: italic;
+      text-align: center;
+      color: #8f5bb2;
+      margin-bottom: 30px;
+    }
+
+    .productos-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .producto {
+      border: 2px solid #e6d9f7;
+      border-radius: 16px;
+      padding: 16px;
+      background: #ffffff;
+      box-shadow: 0 4px 12px rgba(125, 87, 162, 0.15);
+      max-width: 300px;
+      flex: 1 1 250px;
+      text-align: center;
+    }
+
+    .producto img {
+      max-width: 100%;
+      border-radius: 12px;
+    }
+
+    .producto h3 {
+      margin: 10px 0;
+      color: #7b4ca0;
+    }
+
+    .producto p {
+      margin: 0;
+      font-weight: bold;
+      color: #5e3a84;
+    }
+
+    /* BOTONES */
+    button {
+      background: linear-gradient(135deg, #c8a2ff, #b88ce2);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-family: 'Arial', sans-serif;
+      box-shadow: 0 4px 10px rgba(125, 87, 162, 0.4);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #b88ce2, #c8a2ff);
+      box-shadow: 0 6px 14px rgba(125, 87, 162, 0.5);
+      transform: scale(1.05);
+    }
+
+    /* PIE DE PÁGINA */
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 14px;
+      color: #704d94;
+      padding: 20px;
+    }
+
+    footer em {
+      font-style: italic;
+    }
+
+    /* RESPONSIVE PARA CELULARES Y TABLETAS */
+    @media (max-width: 768px) {
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+      }
+
+      .main {
+        margin-left: 0;
+        padding: 15px;
+      }
+
+      .productos-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <h1 class="titulo-tienda">MI TIENDA FITNESS</h1>
-        <p class="lema">Ajustada a tu <strong>BELLEZA</strong></p>
-    </header>
+  <!-- BARRA LATERAL -->
+  <div class="sidebar">
+    <h2>NAVEGACIÓN</h2>
+    <a href="#">Inicio</a>
+    <a href="#">Sobre nosotros</a>
+    <a href="#">Preguntas frecuentes</a>
+    <a href="#">Políticas de devolución</a>
+  </div>
 
-    <div class="contenedor-principal">
-        <nav class="barra-lateral">
-            <button class="btn-nav" onclick="location.href='#'">Inicio</button>
-            <button class="btn-nav" onclick="location.href='#sobre-nosotros'">Sobre Nosotros</button>
-            <button class="btn-nav" onclick="location.href='#preguntas-frecuentes'">Preguntas Frecuentes</button>
-            <button class="btn-nav" onclick="location.href='#politicas-devolucion'">Políticas de Devolución</button>
-        </nav>
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="main">
+    <h1>MI TIENDA FITNESS</h1>
+    <h2 class="lema">AJUSTADA A TU BELLEZA</h2>
 
-        <main class="contenido-principal">
-            <section class="productos">
-                <h2>Productos</h2>
-                <div class="grid-productos">
-                    <div class="producto">
-                        <img src="static/img/chamarra6.avif.webp" alt="Chamarra 6" />
-                        <h3>Chamarra Deportiva</h3>
-                        <p>$850.00</p>
-                        <button class="boton-agregar" data-producto="Chamarra Deportiva" data-precio="850">Agregar</button>
-                    </div>
-                    <div class="producto">
-                        <img src="static/img/conjunto4.avif.webp" alt="Conjunto 4" />
-                        <h3>Conjunto Fitness</h3>
-                        <p>$700.00</p>
-                        <button class="boton-agregar" data-producto="Conjunto Fitness" data-precio="700">Agregar</button>
-                    </div>
-                    <div class="producto">
-                        <img src="static/img/mallas2.avif.webp" alt="Mallas 2" />
-                        <h3>Mallas Deportivas</h3>
-                        <p>$650.00</p>
-                        <button class="boton-agregar" data-producto="Mallas Deportivas" data-precio="650">Agregar</button>
-                    </div>
-                    <div class="producto">
-                        <img src="static/img/shortmorado.avif" alt="Short Morado" />
-                        <h3>Short Morado</h3>
-                        <p>$500.00</p>
-                        <button class="boton-agregar" data-producto="Short Morado" data-precio="500">Agregar</button>
-                    </div>
-                    <div class="producto">
-                        <img src="static/img/top2.avif.webp" alt="Top 2" />
-                        <h3>Top Deportivo</h3>
-                        <p>$450.00</p>
-                        <button class="boton-agregar" data-producto="Top Deportivo" data-precio="450">Agregar</button>
-                    </div>
-                </div>
-            </section>
+    <!-- PRODUCTOS -->
+    <div class="productos-container">
+      <div class="producto">
+        <img src="static/img/mallas1.avif" alt="Mallas Lila" />
+        <h3>Mallas Lila</h3>
+        <p>$299 MXN</p>
+        <button onclick="agregarAlCarrito('Mallas Lila', 299)">Agregar</button>
+      </div>
 
-            <aside class="carrito">
-                <h2>Carrito de Compras</h2>
-                <ul id="lista-carrito"></ul>
-                <p id="total-carrito">Total: $0.00</p>
-                <button id="vaciar-carrito">Vaciar carrito</button>
-            </aside>
-
-            <section id="sobre-nosotros" class="info-seccion">
-                <h2>Sobre Nosotros</h2>
-                <p>
-                    Nuestra tienda fue creada para ayudar a que cada mujer se sienta
-                    hermosa y segura, ofreciendo ropa fitness diseñada para resaltar tu belleza natural.
-                </p>
-            </section>
-
-            <section id="preguntas-frecuentes" class="info-seccion">
-                <h2>Preguntas Frecuentes</h2>
-                <p>Próximamente encontrarás respuestas a las dudas más comunes sobre nuestros productos y servicios.</p>
-            </section>
-
-            <section id="politicas-devolucion" class="info-seccion">
-                <h2>Políticas de Devolución</h2>
-                <p>
-                    Aceptamos devoluciones en un plazo de 30 días, siempre y cuando los productos estén en condiciones originales y con etiqueta.
-                </p>
-            </section>
-
-            <section class="comentarios">
-                <h2>Califica nuestros productos</h2>
-                <form id="form-comentario">
-                    <label for="comentario">Deja tu comentario:</label><br />
-                    <textarea id="comentario" name="comentario" rows="4" cols="50" required></textarea><br />
-                    <button type="submit">Enviar</button>
-                </form>
-            </section>
-        </main>
+      <div class="producto">
+        <img src="static/img/top1.avif" alt="Top Lavanda" />
+        <h3>Top Lavanda</h3>
+        <p>$249 MXN</p>
+        <button onclick="agregarAlCarrito('Top Lavanda', 249)">Agregar</button>
+      </div>
     </div>
 
-    <footer>
-        <p>Contacto: 3323830353 | Ubicación: Hacienda los Eucaliptos, Tlajomulco de Zúñiga</p>
-    </footer>
+    <!-- BOTÓN DE VACIAR CARRITO -->
+    <div style="text-align:center; margin-top: 30px;">
+      <button onclick="vaciarCarrito()">Vaciar carrito</button>
+    </div>
 
-    <script src="static/js/carrito.js"></script>
+    <!-- PIE DE PÁGINA -->
+    <footer>
+      <p>📍 Hacienda los Eucaliptos, Tlajomulco de Zúñiga</p>
+      <p>📞 3323830353</p>
+      <p><em>AJUSTADA A TU BELLEZA</em></p>
+    </footer>
+  </div>
+
+  <!-- JS -->
+  <script>
+    function agregarAlCarrito(producto, precio) {
+      alert("Agregado: " + producto + " - $" + precio);
+    }
+
+    function vaciarCarrito() {
+      alert("Carrito vaciado.");
+    }
+  </script>
 </body>
 </html>
