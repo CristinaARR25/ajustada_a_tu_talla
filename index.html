@@ -6,121 +6,355 @@
   <title>Mi Tienda Fitness - Ajustada a tu BELLEZA</title>
 
   <style>
-    /* Reset básico */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
     body {
-      background: #f6f0f9;
-      color: #4b3f6b;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffe6f0, #e5ccff);
+      color: #333;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 20px;
+      padding: 0 10px 40px;
     }
 
     header {
+      width: 100%;
+      max-width: 1200px;
       text-align: center;
-      margin-bottom: 1rem;
+      background-color: #d1b3ff;
+      padding: 20px 0;
+      color: white;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 4px 8px rgba(109, 79, 201, 0.4);
     }
 
     header h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #6e5aa8;
-      letter-spacing: 2px;
-      margin-bottom: 0.25rem;
+      font-size: 2.8rem;
+      margin-bottom: 5px;
+      letter-spacing: 3px;
     }
 
     header p.lema {
-      font-size: 1.25rem;
       font-style: italic;
-      color: #9c8dd1;
-      letter-spacing: 1px;
+      font-size: 1.4rem;
+      color: #ab85f5;
+      letter-spacing: 1.2px;
     }
 
-    /* Botones */
-    .btn {
-      background: linear-gradient(135deg, #a389d4, #6e5aa8);
-      color: white;
-      border: none;
-      border-radius: 12px;
-      padding: 0.6rem 1.5rem;
-      font-weight: 600;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(110, 90, 168, 0.3);
-      transition: background 0.3s ease, transform 0.2s ease;
-      user-select: none;
-      font-size: 1rem;
-    }
-    .btn:hover, .btn:focus {
-      background: linear-gradient(135deg, #7c6fc9, #513d99);
-      transform: scale(1.05);
-      outline: none;
-    }
-
-    /* Contenedor principal */
-    main {
+    .contenedor-principal {
+      display: flex;
       max-width: 1200px;
       width: 100%;
+      gap: 20px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .barra-lateral {
+      min-width: 180px;
+      background-color: #d1b3ff;
+      border-radius: 15px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+      height: fit-content;
+      flex-shrink: 0;
+    }
+
+    .boton-nav {
+      background-color: #a58fff;
+      border: none;
+      padding: 12px;
+      color: white;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-size: 1rem;
+      user-select: none;
+      text-align: center;
+    }
+
+    .boton-nav:hover {
+      background-color: #7f61d3;
+    }
+
+    main {
+      flex: 1;
+      min-width: 280px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .productos {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
       justify-content: center;
+      width: 100%;
     }
 
-    /* Producto */
     .producto {
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(110, 90, 168, 0.15);
-      width: 260px;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transition: box-shadow 0.3s ease;
+      background-color: white;
+      padding: 15px;
+      border-radius: 18px;
+      box-shadow: 3px 3px 12px rgba(165, 143, 255, 0.3);
+      width: 220px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+      user-select: none;
     }
+
     .producto:hover {
-      box-shadow: 0 8px 20px rgba(110, 90, 168, 0.3);
+      transform: scale(1.05);
+      box-shadow: 5px 5px 18px rgba(165, 143, 255, 0.6);
     }
 
     .producto img {
       width: 100%;
       height: auto;
-      border-radius: 12px;
-      margin-bottom: 12px;
+      border-radius: 15px;
       object-fit: cover;
       aspect-ratio: 1 / 1;
+      margin-bottom: 12px;
     }
 
     .producto h3 {
       color: #6e5aa8;
       margin-bottom: 8px;
-      font-size: 1.2rem;
-      text-align: center;
+      font-size: 1.25rem;
+      user-select: text;
     }
 
-    .producto p {
-      font-weight: 700;
+    .precio {
       color: #9c8dd1;
+      font-weight: 700;
       margin-bottom: 12px;
-      font-size: 1rem;
+      font-size: 1.1rem;
+      user-select: text;
     }
 
-    /* Adaptación a móviles */
-    @media (max-width: 768px) {
-      main {
+    .boton-agregar {
+      background: linear-gradient(135deg, #a389d4, #6e5aa8);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 10px 20px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(110, 90, 168, 0.3);
+      transition: background 0.3s ease, transform 0.2s ease;
+      user-select: none;
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    .boton-agregar:hover {
+      background: linear-gradient(135deg, #7c6fc9, #513d99);
+      transform: scale(1.05);
+      outline: none;
+    }
+
+    .carrito {
+      width: 260px;
+      background-color: #f3e5f5;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 3px 3px 10px rgba(165, 143, 255, 0.3);
+      height: fit-content;
+    }
+
+    .carrito h2 {
+      text-align: center;
+      color: #6a1b9a;
+      margin-bottom: 15px;
+      user-select: text;
+    }
+
+    #lista-carrito {
+      list-style: none;
+      max-height: 220px;
+      overflow-y: auto;
+      padding-left: 0;
+      margin-bottom: 15px;
+      user-select: none;
+    }
+
+    #lista-carrito li {
+      padding: 8px 10px;
+      margin-bottom: 8px;
+      background: white;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 1px 1px 4px rgba(110, 90, 168, 0.15);
+      font-size: 0.95rem;
+      user-select: text;
+    }
+
+    #lista-carrito li button {
+      background-color: #a58fff;
+      border: none;
+      color: white;
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+
+    #lista-carrito li button:hover {
+      background-color: #7c6fc9;
+    }
+
+    #total-carrito {
+      font-weight: 700;
+      text-align: center;
+      color: #6a1b9a;
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      user-select: text;
+    }
+
+    #vaciar-carrito {
+      background-color: #ef5350;
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+
+    #vaciar-carrito:hover {
+      background-color: #d32f2f;
+    }
+
+    .comentarios {
+      margin-top: 40px;
+      background: #ffe6f0;
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 1200px;
+      width: 100%;
+      box-shadow: 3px 3px 10px rgba(165, 143, 255, 0.2);
+    }
+
+    .comentarios h2,
+    .comentarios h3 {
+      color: #ab47bc;
+      text-align: center;
+      user-select: text;
+    }
+
+    textarea {
+      width: 100%;
+      height: 80px;
+      margin-top: 10px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      padding: 12px;
+      resize: none;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    .comentarios button {
+      margin-top: 10px;
+      background-color: #7e57c2;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+
+    .comentarios button:hover {
+      background-color: #5e35b1;
+    }
+
+    .contacto-ubicacion {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #4a148c;
+      user-select: text;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px 10px;
+      background-color: #d1b3ff;
+      color: white;
+      border-radius: 15px;
+      max-width: 1200px;
+      width: 100%;
+      user-select: none;
+      box-shadow: 0 4px 8px rgba(109, 79, 201, 0.5);
+    }
+
+    /* Adaptación responsiva simple */
+    @media (max-width: 900px) {
+      .contenedor-principal {
+        flex-direction: column;
+        align-items: center;
+      }
+      .barra-lateral {
+        width: 100%;
+        max-width: 300px;
+        flex-direction: row;
+        flex-wrap: wrap;
         justify-content: center;
       }
-
+      .boton-nav {
+        flex: 1 1 140px;
+        margin: 6px;
+        font-size: 1.1rem;
+      }
+      main {
+        width: 100%;
+        max-width: 600px;
+      }
+      .productos {
+        justify-content: center;
+      }
       .producto {
-        width: 90%;
+        width: 100%;
+        max-width: 300px;
+      }
+      .carrito {
+        width: 100%;
+        max-width: 300px;
+        margin-top: 30px;
+      }
+      .comentarios {
+        max-width: 600px;
+      }
+      .contacto-ubicacion {
+        max-width: 600px;
+        font-size: 1rem;
       }
     }
   </style>
@@ -132,50 +366,136 @@
     <p class="lema">Ajustada a tu <strong>BELLEZA</strong></p>
   </header>
 
-  <main>
-    <!-- Aquí van tus productos con nombres y botones -->
-    <div class="producto">
-      <img src="static/img/conjunto1.avif" alt="Conjunto 1" />
-      <h3>Conjunto 1</h3>
-      <p>$799 MXN</p>
-      <button class="btn" onclick="agregarAlCarrito('Conjunto 1', 799)">Agregar al carrito</button>
-    </div>
+  <div class="contenedor-principal">
 
-    <div class="producto">
-      <img src="static/img/chamarra1.avif" alt="Chamarra 1" />
-      <h3>Chamarra 1</h3>
-      <p>$499 MXN</p>
-      <button class="btn" onclick="agregarAlCarrito('Chamarra 1', 499)">Agregar al carrito</button>
-    </div>
+    <nav class="barra-lateral" aria-label="Navegación principal">
+      <button class="boton-nav">Inicio</button>
+      <button class="boton-nav">Sobre Nosotros</button>
+      <button class="boton-nav">Preguntas Frecuentes</button>
+      <button class="boton-nav">Políticas de Devolución</button>
+    </nav>
 
-    <div class="producto">
-      <img src="static/img/mallas1.avif" alt="Mallas 1" />
-      <h3>Mallas 1</h3>
-      <p>$299 MXN</p>
-      <button class="btn" onclick="agregarAlCarrito('Mallas 1', 299)">Agregar al carrito</button>
-    </div>
+    <main>
+      <section class="productos" aria-label="Productos disponibles">
+        <!-- Aquí tus productos con imágenes y botones -->
+        <article class="producto" aria-label="Conjunto 1">
+          <img src="static/img/conjunto1.avif" alt="Conjunto deportivo lila" loading="lazy" />
+          <h3>Conjunto 1</h3>
+          <p class="precio">$799 MXN</p>
+          <button class="boton-agregar" data-producto="Conjunto 1" data-precio="799">Agregar al carrito</button>
+        </article>
 
-    <div class="producto">
-      <img src="static/img/short4.avif" alt="Short 4" />
-      <h3>Short 4</h3>
-      <p>$199 MXN</p>
-      <button class="btn" onclick="agregarAlCarrito('Short 4', 199)">Agregar al carrito</button>
-    </div>
+        <article class="producto" aria-label="Chamarra 1">
+          <img src="static/img/chamarra1.avif" alt="Chamarra deportiva morada" loading="lazy" />
+          <h3>Chamarra 1</h3>
+          <p class="precio">$499 MXN</p>
+          <button class="boton-agregar" data-producto="Chamarra 1" data-precio="499">Agregar al carrito</button>
+        </article>
 
-    <div class="producto">
-      <img src="static/img/top1.avif" alt="Top 1" />
-      <h3>Top 1</h3>
-      <p>$249 MXN</p>
-      <button class="btn" onclick="agregarAlCarrito('Top 1', 249)">Agregar al carrito</button>
-    </div>
-  </main>
+        <article class="producto" aria-label="Mallas 1">
+          <img src="static/img/mallas1.avif" alt="Mallas deportivas lilas" loading="lazy" />
+          <h3>Mallas 1</h3>
+          <p class="precio">$299 MXN</p>
+          <button class="boton-agregar" data-producto="Mallas 1" data-precio="299">Agregar al carrito</button>
+        </article>
+
+        <article class="producto" aria-label="Short 4">
+          <img src="static/img/short4.avif" alt="Short deportivo lila" loading="lazy" />
+          <h3>Short 4</h3>
+          <p class="precio">$199 MXN</p>
+          <button class="boton-agregar" data-producto="Short 4" data-precio="199">Agregar al carrito</button>
+        </article>
+
+        <article class="producto" aria-label="Top 1">
+          <img src="static/img/top1.avif" alt="Top deportivo lila" loading="lazy" />
+          <h3>Top 1</h3>
+          <p class="precio">$249 MXN</p>
+          <button class="boton-agregar" data-producto="Top 1" data-precio="249">Agregar al carrito</button>
+        </article>
+      </section>
+
+      <aside class="carrito" aria-label="Carrito de compras">
+        <h2>Carrito de compras</h2>
+        <ul id="lista-carrito" aria-live="polite" aria-relevant="additions removals"></ul>
+        <p id="total-carrito">Total: $0.00</p>
+        <button id="vaciar-carrito" aria-label="Vaciar carrito">Vaciar carrito</button>
+      </aside>
+    </main>
+  </div>
+
+  <section class="comentarios" aria-label="Sección de comentarios">
+    <h2>Califica nuestros productos</h2>
+    <h3>Deja tu comentario</h3>
+    <form id="form-comentario">
+      <textarea id="comentario" required placeholder="Escribe aquí tu opinión..."></textarea>
+      <button type="submit">Enviar comentario</button>
+    </form>
+  </section>
+
+  <section class="contacto-ubicacion" aria-label="Contacto y ubicación">
+    <p>📞 3323830353 | Hacienda los Eucaliptos, Tlajomulco de Zúñiga</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Mi Tienda Fitness. Todos los derechos reservados.
+  </footer>
 
   <script>
-    // Función simple para agregar al carrito (solo ejemplo)
-    function agregarAlCarrito(nombre, precio) {
-      alert(`Producto agregado:\n${nombre} - $${precio} MXN`);
-    }
-  </script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const botonesAgregar = document.querySelectorAll('.boton-agregar');
+      const listaCarrito = document.getElementById('lista-carrito');
+      const totalCarrito = document.getElementById('total-carrito');
+      const botonVaciar = document.getElementById('vaciar-carrito');
+      const formComentario = document.getElementById('form-comentario');
 
+      let carrito = [];
+
+      function actualizarCarrito() {
+        listaCarrito.innerHTML = '';
+        let total = 0;
+
+        carrito.forEach((item, index) => {
+          const li = document.createElement('li');
+          li.textContent = `${item.nombre} - $${item.precio}`;
+
+          const btnEliminar = document.createElement('button');
+          btnEliminar.textContent = 'X';
+          btnEliminar.title = 'Eliminar producto';
+          btnEliminar.addEventListener('click', () => {
+            carrito.splice(index, 1);
+            actualizarCarrito();
+          });
+
+          li.appendChild(btnEliminar);
+          listaCarrito.appendChild(li);
+
+          total += parseFloat(item.precio);
+        });
+
+        totalCarrito.textContent = `Total: $${total.toFixed(2)}`;
+      }
+
+      botonesAgregar.forEach(boton => {
+        boton.addEventListener('click', () => {
+          const nombre = boton.getAttribute('data-producto');
+          const precio = boton.getAttribute('data-precio');
+
+          carrito.push({ nombre, precio });
+          actualizarCarrito();
+        });
+      });
+
+      botonVaciar.addEventListener('click', () => {
+        carrito = [];
+        actualizarCarrito();
+      });
+
+      formComentario.addEventListener('submit', e => {
+        e.preventDefault();
+        alert('¡Gracias por tu comentario!');
+        formComentario.reset();
+      });
+    });
+  </script>
 </body>
 </html>
