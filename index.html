@@ -3,132 +3,72 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Tienda Fitness - Ajustada a tu BELLEZA</title>
-    <link rel="stylesheet" href="static/css/styles.css" />
-    <script defer src="static/js/carrito.js"></script>
+    <title>Ajustada a tu Talla</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="carrito.js"></script>
 </head>
 <body>
     <header>
-        <h1 class="titulo-principal">Tienda Fitness</h1>
-        <p class="lema">Ajustada a tu <strong>BELLEZA</strong> &lt;3</p>
+        <h1 class="titulo-principal">Ajustada a tu Talla</h1>
+        <p class="lema">Ajustada a tu <strong>BELLEZA <3</strong></p>
     </header>
 
     <div class="contenedor-principal">
-
         <nav class="barra-lateral">
-            <button onclick="mostrarSeccion('inicio')">Inicio</button>
-            <button onclick="mostrarSeccion('sobre-nosotros')">Sobre Nosotros</button>
-            <button onclick="mostrarSeccion('preguntas')">Preguntas Frecuentes</button>
-            <button onclick="mostrarSeccion('politicas')">Políticas de Devolución</button>
+            <button class="boton-nav">Inicio</button>
+            <button class="boton-nav">Sobre Nosotros</button>
+            <button class="boton-nav">Preguntas Frecuentes</button>
+            <button class="boton-nav">Políticas de Devolución</button>
         </nav>
 
-        <main class="contenido-principal">
+        <main>
+            <section class="productos">
+                <!-- Ejemplo productos -->
+                <article class="producto">
+                    <img src="static/img/mallas1.avif" alt="Mallas deportivas" />
+                    <h3>Mallas deportivas</h3>
+                    <p class="precio">$350</p>
+                    <button class="boton-agregar" data-producto="Mallas deportivas" data-precio="350">Agregar al carrito</button>
+                </article>
 
-            <section id="inicio" class="seccion visible">
-                <div class="productos">
-                    <div class="producto">
-                        <img src="static/img/shortmorado.avif" alt="Short" />
-                        <h3>Short</h3>
-                        <button onclick="agregarAlCarrito('Short')">Agregar al carrito</button>
-                    </div>
-                    <div class="producto">
-                        <img src="static/img/mallas1.avif" alt="Mallas" />
-                        <h3>Mallas</h3>
-                        <button onclick="agregarAlCarrito('Mallas')">Agregar al carrito</button>
-                    </div>
-                    <div class="producto">
-                        <img src="static/img/chamarra2.avif" alt="Chamarra" />
-                        <h3>Chamarra</h3>
-                        <button onclick="agregarAlCarrito('Chamarra')">Agregar al carrito</button>
-                    </div>
-                    <div class="producto">
-                        <img src="static/img/calcetas1.avif" alt="Calcetas" />
-                        <h3>Calcetas</h3>
-                        <button onclick="agregarAlCarrito('Calcetas')">Agregar al carrito</button>
-                    </div>
-                    <div class="producto">
-                        <img src="static/img/top4.avif" alt="Top" />
-                        <h3>Top</h3>
-                        <button onclick="agregarAlCarrito('Top')">Agregar al carrito</button>
-                    </div>
-                </div>
-                <div id="carrito-contenedor" class="carrito-contenedor">
-                    <p>El carrito está vacío.</p>
-                </div>
+                <article class="producto">
+                    <img src="static/img/top1.avif" alt="Top deportivo" />
+                    <h3>Top deportivo</h3>
+                    <p class="precio">$250</p>
+                    <button class="boton-agregar" data-producto="Top deportivo" data-precio="250">Agregar al carrito</button>
+                </article>
+
+                <!-- Agrega más productos con la misma estructura -->
             </section>
 
-            <section id="sobre-nosotros" class="seccion">
-                <h2>Sobre Nosotros</h2>
-                <p>
-                    Nuestra tienda fitness fue creada con la intención de mejorar la percepción que tenemos de nosotras mismas.
-                    Creemos que cada prenda que ofrecemos ayuda a elevar tu autoestima y a sentirte más segura y cómoda en tu cuerpo.
-                    Nos apasiona acompañarte en tu camino hacia una vida más saludable y llena de confianza.
-                </p>
+            <section class="contacto-ubicacion">
+                <h2>Contacto</h2>
+                <p>Teléfono: 3323830353</p>
+                <h2>Ubicación</h2>
+                <p>Hacienda los Eucaliptos, Tlajomulco de Zúñiga</p>
             </section>
 
-            <section id="preguntas" class="seccion">
-                <h2>Preguntas Frecuentes</h2>
-                <ul>
-                    <li><strong>¿Cómo puedo realizar una compra?</strong> - Selecciona tus productos y agrégalos al carrito. Luego procede al pago.</li>
-                    <li><strong>¿Cuánto tarda el envío?</strong> - El envío tarda entre 3 y 5 días hábiles.</li>
-                    <li><strong>¿Puedo devolver un producto?</strong> - Sí, consulta nuestras políticas en la sección correspondiente.</li>
-                </ul>
+            <section class="comentarios">
+                <h2>CALIFICA NUESTROS PRODUCTOS</h2>
+                <h3>DEJA TU COMENTARIO</h3>
+                <form id="form-comentario">
+                    <textarea placeholder="Escribe tu comentario aquí..." required></textarea>
+                    <br />
+                    <button type="submit" class="boton-nav">Enviar</button>
+                </form>
             </section>
-
-            <section id="politicas" class="seccion">
-                <h2>Políticas de Devolución</h2>
-                <p>
-                    Aceptamos devoluciones en un plazo de 15 días naturales después de la compra.
-                    Los productos deben estar sin usar y en su empaque original.
-                </p>
-            </section>
-
         </main>
+
+        <aside class="carrito">
+            <h2>Carrito de Compras</h2>
+            <ul id="lista-carrito"></ul>
+            <p id="total-carrito">Total: $0</p>
+            <button id="vaciar-carrito" class="boton-nav">Vaciar carrito</button>
+        </aside>
     </div>
 
     <footer>
-        <p><strong>Contacto:</strong> 3323830353</p>
-        <p><strong>Ubicación:</strong> Hacienda los Eucaliptos, Tlajomulco de Zúñiga</p>
-        <div class="comentarios">
-            <h3>Califica nuestros productos</h3>
-            <form id="formComentario" onsubmit="return enviarComentario()">
-                <textarea id="comentario" rows="4" placeholder="Deja tu comentario aquí..." required></textarea>
-                <br />
-                <button type="submit">Enviar Comentario</button>
-            </form>
-            <div id="comentarios-recibidos"></div>
-        </div>
+        <p>© 2025 Ajustada a tu Talla - Todos los derechos reservados</p>
     </footer>
-
-<script>
-  // Mostrar secciones según el botón
-  function mostrarSeccion(seccion) {
-    const secciones = document.querySelectorAll('.seccion');
-    secciones.forEach(sec => {
-      if (sec.id === seccion) {
-        sec.classList.add('visible');
-      } else {
-        sec.classList.remove('visible');
-      }
-    });
-  }
-
-  // Manejar comentarios
-  function enviarComentario() {
-    const textarea = document.getElementById('comentario');
-    const texto = textarea.value.trim();
-    if (texto === '') return false;
-
-    const contenedor = document.getElementById('comentarios-recibidos');
-    const nuevoComentario = document.createElement('p');
-    nuevoComentario.textContent = texto;
-    contenedor.appendChild(nuevoComentario);
-
-    textarea.value = '';
-    alert('¡Gracias por tu comentario!');
-    return false; // para evitar recarga
-  }
-</script>
-
 </body>
 </html>

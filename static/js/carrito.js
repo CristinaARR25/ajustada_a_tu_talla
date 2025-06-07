@@ -1,36 +1,66 @@
-// carrito.js - Código exacto para tu tienda fitness
+document.addEventListener('DOMContentLoaded', () => {
+    const botonesAgregar = document.querySelectorAll('.boton-agregar');
+    const listaCarrito = document.getElementById('lista-carrito');
+    const totalCarrito = document.getElementById('total-carrito');
+    const botonVaciar = document.getElementById('vaciar-carrito');
 
-let carrito = [];
+    let carrito = [];
 
-function agregarAlCarrito(nombreProducto) {
-  const productoExistente = carrito.find(item => item.nombre === nombreProducto);
-  if (productoExistente) {
-    productoExistente.cantidad += 1;
-  } else {
-    carrito.push({ nombre: nombreProducto, cantidad: 1 });
-  }
-  actualizarCarritoVisual();
-}
+    function actualizarCarrito() {
+        listaCarrito.innerHTML = '';
+        let total = 0;
 
-function actualizarCarritoVisual() {
-  const carritoContenedor = document.getElementById('carrito-contenedor');
-  carritoContenedor.innerHTML = '';
+        carrito.forEach((item, index) => {
+            const li = document.createElement('li');
+            li.textContent = `${item.nombre} - $${item.precio}`;
+            
+            // Botón eliminar producto
+            const btnEliminar = document.createElement('button');
+            btnEliminar.textContent = 'X';
+            btnEliminar.style.marginLeft = '10px';
+            btnEliminar.style.backgroundColor = '#A58FFF';
+            btnEliminar.style.border = 'none';
+            btnEliminar.style.color = '#fff';
+            btnEliminar.style.cursor = 'pointer';
+            btnEliminar.style.borderRadius = '50%';
+            btnEliminar.style.width = '20px';
+            btnEliminar.style.height = '20px';
+            btnEliminar.style.fontWeight = 'bold';
+            btnEliminar.title = 'Eliminar producto';
+            btnEliminar.addEventListener('click', () => {
+                carrito.splice(index, 1);
+                actualizarCarrito();
+            });
 
-  if (carrito.length === 0) {
-    carritoContenedor.innerHTML = '<p>El carrito está vacío.</p>';
-    return;
-  }
+            li.appendChild(btnEliminar);
+            listaCarrito.appendChild(li);
 
-  const lista = document.createElement('ul');
-  carrito.forEach(item => {
-    const elemento = document.createElement('li');
-    elemento.textContent = `${item.nombre} — Cantidad: ${item.cantidad}`;
-    lista.appendChild(elemento);
-  });
-  carritoContenedor.appendChild(lista);
-}
+            total += parseFloat(item.precio);
+        });
 
-function limpiarCarrito() {
-  carrito = [];
-  actualizarCarritoVisual();
-}
+        totalCarrito.textContent = `Total: $${total.toFixed(2)}`;
+    }
+
+    botonesAgregar.forEach(boton => {
+        boton.addEventListener('click', () => {
+            const nombre = boton.getAttribute('data-producto');
+            const precio = boton.getAttribute('data-precio');
+
+            carrito.push({ nombre, precio });
+            actualizarCarrito();
+        });
+    });
+
+    botonVaciar.addEventListener('click', () => {
+        carrito = [];
+        actualizarCarrito();
+    });
+
+    // Formulario comentarios simple (solo limpia campo)
+    const formComentario = document.getElementById('form-comentario');
+    formComentario.addEventListener('submit', e => {
+        e.preventDefault();
+        alert('¡Gracias por tu comentario!');
+        formComentario.reset();
+    });
+});
