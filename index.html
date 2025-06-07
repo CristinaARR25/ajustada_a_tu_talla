@@ -1,70 +1,89 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Ajustada a tu Talla</title>
-    <link rel="stylesheet" href="static/css/estilos.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJUSTADA A TU BELLEZA</title>
+    <link rel="stylesheet" href="static/css/estilos.css">
+    <script defer src="static/js/carrito.js"></script>
 </head>
 <body>
+    <header>
+        <h1><em>AJUSTADA A TU BELLEZA</em></h1>
+    </header>
 
-    <h1 class="titulo-principal">Ajustada a tu Talla</h1>
-    <p class="lema">AJUSTADA A TU BELLEZA</p>
-
-    <div class="contenedor-principal">
-        <!-- BARRA LATERAL -->
-        <nav class="barra-lateral">
-            <button class="boton-nav">Inicio</button>
-            <button class="boton-nav">Sobre nosotros</button>
-            <button class="boton-nav">Preguntas frecuentes</button>
-            <button class="boton-nav">Políticas de devolución</button>
+    <aside class="barra-lateral">
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Sobre nosotros</a></li>
+                <li><a href="#">Preguntas frecuentes</a></li>
+                <li><a href="#">Políticas de devolución</a></li>
+            </ul>
         </nav>
+    </aside>
 
-        <!-- SECCIÓN PRINCIPAL -->
-        <main>
-            <section class="productos">
-                <div class="producto">
-                    <img src="static/img/top1.avif" alt="Top deportivo">
-                    <p class="precio">$199.00</p>
-                    <button class="boton-agregar" data-producto="Top deportivo" data-precio="199">Agregar al carrito</button>
-                </div>
-                <div class="producto">
-                    <img src="static/img/conjunto2.avif" alt="Conjunto rosa">
-                    <p class="precio">$499.00</p>
-                    <button class="boton-agregar" data-producto="Conjunto rosa" data-precio="499">Agregar al carrito</button>
-                </div>
-                <!-- Agrega más productos similares -->
-            </section>
+    <main>
+        <h2>Nuestros Productos</h2>
+        <section class="productos">
 
-            <section class="comentarios">
-                <h2>CALIFICA NUESTROS PRODUCTOS</h2>
-                <h3>DEJA TU COMENTARIO</h3>
-                <form id="form-comentario">
-                    <textarea placeholder="Escribe tu opinión aquí..."></textarea>
-                    <br />
-                    <button type="submit">Enviar</button>
-                </form>
-            </section>
+            <div class="producto">
+                <img src="static/img/top1.avif" alt="Top Deportivo">
+                <p>Top Deportivo</p>
+                <p class="precio">$250</p>
+                <button class="boton-agregar" data-producto="Top Deportivo" data-precio="250">Agregar al carrito</button>
+            </div>
 
-            <section class="contacto-ubicacion">
-                <p>Tel: 3323830353</p>
-                <p>Ubicación: Hacienda los Eucaliptos, Tlajomulco de Zúñiga</p>
-            </section>
+            <div class="producto">
+                <img src="static/img/conjunto4.avif" alt="Conjunto Deportivo">
+                <p>Conjunto Deportivo</p>
+                <p class="precio">$480</p>
+                <button class="boton-agregar" data-producto="Conjunto Deportivo" data-precio="480">Agregar al carrito</button>
+            </div>
 
-            <footer>
-                <p>&copy; 2025 Ajustada a tu Talla</p>
-            </footer>
-        </main>
+            <div class="producto">
+                <img src="static/img/mallas2.avif" alt="Mallas Largas">
+                <p>Mallas Largas</p>
+                <p class="precio">$300</p>
+                <button class="boton-agregar" data-producto="Mallas Largas" data-precio="300">Agregar al carrito</button>
+            </div>
 
-        <!-- CARRITO -->
-        <aside class="carrito">
-            <h2>Carrito</h2>
+            <div class="producto">
+                <img src="static/img/shortmorado.avif" alt="Short Morado">
+                <p>Short Morado</p>
+                <p class="precio">$200</p>
+                <button class="boton-agregar" data-producto="Short Morado" data-precio="200">Agregar al carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="static/img/chamarra6.avif" alt="Chamarra Ligera">
+                <p>Chamarra Ligera</p>
+                <p class="precio">$550</p>
+                <button class="boton-agregar" data-producto="Chamarra Ligera" data-precio="550">Agregar al carrito</button>
+            </div>
+
+        </section>
+
+        <section class="carrito">
+            <h2>Carrito de Compras</h2>
             <ul id="lista-carrito"></ul>
             <p id="total-carrito">Total: $0.00</p>
             <button id="vaciar-carrito">Vaciar carrito</button>
-        </aside>
-    </div>
+        </section>
 
-    <script src="static/js/carrito.js"></script>
+        <section class="comentarios">
+            <h2>CALIFICA NUESTROS PRODUCTOS</h2>
+            <form id="form-comentario">
+                <label for="comentario">DEJA TU COMENTARIO:</label><br>
+                <textarea id="comentario" name="comentario" rows="4" cols="50" required></textarea><br>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p><strong>Contacto:</strong> 3323830353</p>
+        <p><strong>Ubicación:</strong> Hacienda los Eucaliptos, Tlajomulco de Zúñiga</p>
+    </footer>
 </body>
 </html>
