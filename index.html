@@ -1,276 +1,108 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ajustada a Tu Talla - Tienda Fitness</title>
-
-<style>
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: #f8f4fb;
-        margin: 0; padding: 0;
-        color: #4b3b67;
-    }
-    header {
-        background: #a58fff;
-        color: white;
-        padding: 20px;
-        text-align: center;
-        font-size: 2rem;
-        font-style: italic;
-        font-weight: 700;
-        letter-spacing: 2px;
-        box-shadow: 0 2px 10px rgba(165,143,255,0.7);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
-    main {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 25px;
-        padding: 30px;
-    }
-    .producto {
-        background: white;
-        border-radius: 20px;
-        box-shadow: 0 8px 20px rgba(165, 143, 255, 0.25);
-        width: 220px;
-        text-align: center;
-        padding: 15px;
-        transition: transform 0.25s ease;
-    }
-    .producto:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 30px rgba(165, 143, 255, 0.5);
-    }
-    .producto img {
-        width: 100%;
-        border-radius: 15px;
-        margin-bottom: 12px;
-        object-fit: cover;
-        height: 220px;
-    }
-    .producto h3 {
-        margin: 0 0 8px;
-        font-weight: 700;
-        font-size: 1.3rem;
-        color: #7e58d3;
-    }
-    .producto p {
-        font-weight: 600;
-        font-size: 1.1rem;
-        margin: 0 0 15px;
-        color: #a57fff;
-    }
-    .boton-agregar {
-        background: #a58fff;
-        border: none;
-        border-radius: 15px;
-        color: white;
-        padding: 10px 22px;
-        cursor: pointer;
-        font-weight: 700;
-        font-size: 1rem;
-        box-shadow: 0 4px 15px rgba(165,143,255,0.7);
-        transition: background-color 0.3s ease;
-    }
-    .boton-agregar:hover {
-        background: #7e58d3;
-    }
-    #carrito {
-        position: fixed;
-        right: 20px;
-        top: 80px;
-        width: 280px;
-        max-height: 70vh;
-        background: #fff;
-        border-radius: 20px;
-        padding: 15px;
-        box-shadow: 0 12px 30px rgba(165, 143, 255, 0.5);
-        overflow-y: auto;
-        z-index: 1100;
-    }
-    #carrito h2 {
-        text-align: center;
-        font-size: 1.5rem;
-        margin-top: 0;
-        color: #7e58d3;
-    }
-    #lista-carrito {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 15px 0;
-    }
-    #lista-carrito li {
-        display: flex;
-        justify-content: space-between;
-        background: #d7cfff;
-        margin-bottom: 10px;
-        padding: 8px 12px;
-        border-radius: 15px;
-        font-weight: 600;
-        color: #4b3b67;
-        align-items: center;
-    }
-    #lista-carrito li button {
-        background: #7e58d3;
-        border: none;
-        border-radius: 50%;
-        color: white;
-        width: 25px;
-        height: 25px;
-        cursor: pointer;
-        font-weight: 700;
-        font-size: 1rem;
-        line-height: 1;
-    }
-    #total-carrito {
-        font-weight: 700;
-        font-size: 1.3rem;
-        text-align: center;
-        color: #a57fff;
-        margin-bottom: 15px;
-    }
-    #vaciar-carrito {
-        background: #7e58d3;
-        border: none;
-        border-radius: 15px;
-        width: 100%;
-        padding: 12px;
-        color: white;
-        font-weight: 700;
-        font-size: 1rem;
-        cursor: pointer;
-        box-shadow: 0 4px 15px rgba(126,88,211,0.7);
-        transition: background-color 0.3s ease;
-    }
-    #vaciar-carrito:hover {
-        background: #5a3eb1;
-    }
-    footer {
-        text-align: center;
-        font-style: italic;
-        padding: 20px 0;
-        color: #7e58d3;
-        background: #f0e8ff;
-        margin-top: 40px;
-        user-select: none;
-    }
-    @media (max-width: 720px) {
-        main {
-            flex-direction: column;
-            align-items: center;
-        }
-        #carrito {
-            position: static;
-            width: 90%;
-            max-height: none;
-            margin: 20px auto 0;
-        }
-    }
-</style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mi Tienda Fitness</title>
+    <link rel="stylesheet" href="static/css/estilos.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
 </head>
 <body>
+    <header>
+        <h1 class="titulo-tienda">MI TIENDA FITNESS</h1>
+        <p class="lema">Ajustada a tu <strong>BELLEZA</strong></p>
+    </header>
 
-<header>AJUSTADA A TU BELLEZA</header>
+    <div class="contenedor-principal">
+        <nav class="barra-lateral">
+            <button class="btn-nav" onclick="location.href='#'">Inicio</button>
+            <button class="btn-nav" onclick="location.href='#sobre-nosotros'">Sobre Nosotros</button>
+            <button class="btn-nav" onclick="location.href='#preguntas-frecuentes'">Preguntas Frecuentes</button>
+            <button class="btn-nav" onclick="location.href='#politicas-devolucion'">Políticas de Devolución</button>
+        </nav>
 
-<main>
-    <div class="producto">
-        <img src="static/img/chamarra6.avif.webp" alt="Chamarra 6" />
-        <h3>Chamarra 6</h3>
-        <p>$850.00</p>
-        <button class="boton-agregar" data-producto="Chamarra 6" data-precio="850">Agregar al carrito</button>
+        <main class="contenido-principal">
+            <section class="productos">
+                <h2>Productos</h2>
+                <div class="grid-productos">
+                    <div class="producto">
+                        <img src="static/img/chamarra6.avif.webp" alt="Chamarra 6" />
+                        <h3>Chamarra Deportiva</h3>
+                        <p>$850.00</p>
+                        <button class="boton-agregar" data-producto="Chamarra Deportiva" data-precio="850">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="static/img/conjunto4.avif.webp" alt="Conjunto 4" />
+                        <h3>Conjunto Fitness</h3>
+                        <p>$700.00</p>
+                        <button class="boton-agregar" data-producto="Conjunto Fitness" data-precio="700">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="static/img/mallas2.avif.webp" alt="Mallas 2" />
+                        <h3>Mallas Deportivas</h3>
+                        <p>$650.00</p>
+                        <button class="boton-agregar" data-producto="Mallas Deportivas" data-precio="650">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="static/img/shortmorado.avif" alt="Short Morado" />
+                        <h3>Short Morado</h3>
+                        <p>$500.00</p>
+                        <button class="boton-agregar" data-producto="Short Morado" data-precio="500">Agregar</button>
+                    </div>
+                    <div class="producto">
+                        <img src="static/img/top2.avif.webp" alt="Top 2" />
+                        <h3>Top Deportivo</h3>
+                        <p>$450.00</p>
+                        <button class="boton-agregar" data-producto="Top Deportivo" data-precio="450">Agregar</button>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="carrito">
+                <h2>Carrito de Compras</h2>
+                <ul id="lista-carrito"></ul>
+                <p id="total-carrito">Total: $0.00</p>
+                <button id="vaciar-carrito">Vaciar carrito</button>
+            </aside>
+
+            <section id="sobre-nosotros" class="info-seccion">
+                <h2>Sobre Nosotros</h2>
+                <p>
+                    Nuestra tienda fue creada para ayudar a que cada mujer se sienta
+                    hermosa y segura, ofreciendo ropa fitness diseñada para resaltar tu belleza natural.
+                </p>
+            </section>
+
+            <section id="preguntas-frecuentes" class="info-seccion">
+                <h2>Preguntas Frecuentes</h2>
+                <p>Próximamente encontrarás respuestas a las dudas más comunes sobre nuestros productos y servicios.</p>
+            </section>
+
+            <section id="politicas-devolucion" class="info-seccion">
+                <h2>Políticas de Devolución</h2>
+                <p>
+                    Aceptamos devoluciones en un plazo de 30 días, siempre y cuando los productos estén en condiciones originales y con etiqueta.
+                </p>
+            </section>
+
+            <section class="comentarios">
+                <h2>Califica nuestros productos</h2>
+                <form id="form-comentario">
+                    <label for="comentario">Deja tu comentario:</label><br />
+                    <textarea id="comentario" name="comentario" rows="4" cols="50" required></textarea><br />
+                    <button type="submit">Enviar</button>
+                </form>
+            </section>
+        </main>
     </div>
-    <div class="producto">
-        <img src="static/img/conjunto4.avif.webp" alt="Conjunto 4" />
-        <h3>Conjunto 4</h3>
-        <p>$1200.00</p>
-        <button class="boton-agregar" data-producto="Conjunto 4" data-precio="1200">Agregar al carrito</button>
-    </div>
-    <div class="producto">
-        <img src="static/img/mallas2.avif.webp" alt="Mallas 2" />
-        <h3>Mallas 2</h3>
-        <p>$650.00</p>
-        <button class="boton-agregar" data-producto="Mallas 2" data-precio="650">Agregar al carrito</button>
-    </div>
-    <div class="producto">
-        <img src="static/img/shortmorado.avif" alt="Short Morado" />
-        <h3>Short Morado</h3>
-        <p>$400.00</p>
-        <button class="boton-agregar" data-producto="Short Morado" data-precio="400">Agregar al carrito</button>
-    </div>
-    <div class="producto">
-        <img src="static/img/top2.avif.webp" alt="Top 2" />
-        <h3>Top 2</h3>
-        <p>$550.00</p>
-        <button class="boton-agregar" data-producto="Top 2" data-precio="550">Agregar al carrito</button>
-    </div>
-</main>
 
-<aside id="carrito">
-    <h2>Carrito de compras</h2>
-    <ul id="lista-carrito"></ul>
-    <div id="total-carrito">Total: $0.00</div>
-    <button id="vaciar-carrito">Vaciar carrito</button>
-</aside>
+    <footer>
+        <p>Contacto: 3323830353 | Ubicación: Hacienda los Eucaliptos, Tlajomulco de Zúñiga</p>
+    </footer>
 
-<footer>
-    Contacto: 3323830353 | Ubicación: Hacienda los Eucaliptos, Tlajomulco de Zúñiga
-</footer>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const botonesAgregar = document.querySelectorAll('.boton-agregar');
-    const listaCarrito = document.getElementById('lista-carrito');
-    const totalCarrito = document.getElementById('total-carrito');
-    const botonVaciar = document.getElementById('vaciar-carrito');
-
-    let carrito = [];
-
-    function actualizarCarrito() {
-        listaCarrito.innerHTML = '';
-        let total = 0;
-
-        carrito.forEach((item, index) => {
-            const li = document.createElement('li');
-            li.textContent = `${item.nombre} - $${item.precio}`;
-
-            const btnEliminar = document.createElement('button');
-            btnEliminar.textContent = 'X';
-            btnEliminar.title = 'Eliminar producto';
-            btnEliminar.addEventListener('click', () => {
-                carrito.splice(index, 1);
-                actualizarCarrito();
-            });
-
-            li.appendChild(btnEliminar);
-            listaCarrito.appendChild(li);
-
-            total += parseFloat(item.precio);
-        });
-
-        totalCarrito.textContent = `Total: $${total.toFixed(2)}`;
-    }
-
-    botonesAgregar.forEach(boton => {
-        boton.addEventListener('click', () => {
-            const nombre = boton.getAttribute('data-producto');
-            const precio = boton.getAttribute('data-precio');
-
-            carrito.push({ nombre, precio });
-            actualizarCarrito();
-        });
-    });
-
-    botonVaciar.addEventListener('click', () => {
-        carrito = [];
-        actualizarCarrito();
-    });
-});
-</script>
-
+    <script src="static/js/carrito.js"></script>
 </body>
 </html>
